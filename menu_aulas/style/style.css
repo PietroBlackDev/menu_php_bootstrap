@@ -1,0 +1,27 @@
+ div {
+    padding: 25px;
+ }
+ 
+ .btn-secondary {
+    border: solid 10px white;
+    background-color: black;
+    color: white;
+ }
+
+ menu {
+    margin: 0;
+}
+
+.nav-item {
+    padding: 0 2em 0 2em;
+}
+
+img {
+    margin: 0 2em 0 2em;
+}
+
+header, header > div{
+    max-width: 100%;
+}
+
+
