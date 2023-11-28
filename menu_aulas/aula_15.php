@@ -13,12 +13,6 @@ include 'include/inc_header.php';
 
 
 
-
-
-
-
-
-
 ?>
 
 <script
