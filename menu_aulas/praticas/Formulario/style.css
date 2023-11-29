@@ -1,0 +1,48 @@
+/* CSS GERAL */
+
+.color {
+    background-color: #7683FC;
+    font-family: Trebuchet MS, sans-serif;
+}
+
+/* CSS INDEX(CADASTRO) */
+
+.pad{
+    padding-top: 5em;
+}
+
+.tabela {
+    padding: 2em;
+    background-color: white;
+    border-radius: 18px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.73);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.73);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.73);
+    margin: auto;
+}
+
+.btn {
+    background-color: #2C41FF;
+    color: white;
+}
+
+.btn:hover {
+    background-color: #7683FC;
+    color: white;
+}
+
+.link {
+    text-decoration: none;
+    font-weight: bold;
+    color: #2C41FF;
+}
+
+.link:hover {
+    color: #7683FC;
+}
+
+/* CSS PAINEL */
+
+header{
+    background-color: white;
+}

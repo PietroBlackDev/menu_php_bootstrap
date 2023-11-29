@@ -6,4 +6,4 @@ if(!isset($_SESSION)) {
 
 session_destroy(); //mata a sessao assim deslogando o usuario
 
-header("Location: index.php");
+header("Location: login.php");
