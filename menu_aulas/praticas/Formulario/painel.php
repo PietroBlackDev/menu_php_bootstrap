@@ -6,7 +6,7 @@ include('conexao.php');
 if(isset($_POST['coment'])) { //isset verifica se a variavel esta definida.
 
     if(strlen($_POST['coment']) == 0) {  //strlen = quantidade de caracteres
-        echo "Preencha seu e-mail";
+        echo "Digite algo para comentar!";
     } else {
         $coment = $mysqli->real_escape_string($_POST['coment']); //real_escape_string serve pra limpar os caracteres
 
@@ -14,9 +14,9 @@ if(isset($_POST['coment'])) { //isset verifica se a variavel esta definida.
                 session_start();
             }
 
-            $result_usuario = "INSERT INTO comentarios(coment, link_user) VALUES ('". $coment ."', ". $_SESSION['id'].")";
+            $result_usuario = "INSERT INTO comentarios(coment, link_user) VALUES ('". $coment ."', ". $_SESSION['id'].")"; //inserindo os dados na tabela
 
-            $resultado_usuario = mysqli_query($mysqli, $result_usuario);
+            $resultado_usuario = mysqli_query($mysqli, $result_usuario); 
 
             if($resultado_usuario){ //quando o if nao tem uma condição ele vai retornar boolean
               $mensagem = 'Comentário publicado com sucesso!';   
@@ -26,7 +26,7 @@ if(isset($_POST['coment'])) { //isset verifica se a variavel esta definida.
     }
 }
 
-$query_coment = "SELECT coment, link_user, data, usuarios.nome as name FROM comentarios INNER JOIN usuarios ON usuarios.id = comentarios.link_user"; //
+$query_coment = "SELECT coment, link_user, data, usuarios.nome as name FROM comentarios INNER JOIN usuarios ON usuarios.id = comentarios.link_user"; //usando duas tabelas para se conectar
 
 $comentarios = mysqli_query($mysqli, $query_coment);
 
