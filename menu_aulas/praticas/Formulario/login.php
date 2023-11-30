@@ -42,17 +42,19 @@ if(isset($_POST['email']) || isset($_POST['senha'])) { //isset verifica se a var
             header("Location: painel.php"); //header é para redirecionar o usuario
 
         } else {
-            echo "Falha ao logar! E-mail ou senha incorretos";
+            $message = "Falha ao logar! E-mail ou senha incorretos";
         }
 
     }
 
 }
 ?>
-<div class="container text-center pad">
+<div class="container text-center pad">   
     <form class="tabela col-6" action="" method="POST">
         <caption><h3>Acesse sua conta</h3></caption>
-
+        <?php if( isset( $message ) ) : ?>
+            <p><?= $message ?></p>
+        <?php endif; ?>
         <div class="row">
         <label class="text-start" for="email">Insira seu e-mail:</label>
         </div>
