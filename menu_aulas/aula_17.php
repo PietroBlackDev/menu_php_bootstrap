@@ -8,18 +8,23 @@
     <title>Menu</title>
 </head>
 <body>
-<?php
-include 'include/inc_header.php';
+<?php include 'include/inc_header.php';?>
 
+<form action="grave/gravar.php" method="post">
 
+<div class="row">
+<div class="col-5 text-start">
+<label for="nome">Nome:</label>
+<input type="text" name="nome" required>
+</div>
 
+<div class="col-7 text-start">
+<label for="email">data:</label>
+<input type="date" name="data_nascimento" required>
+</div>
+</div>
 
-
-
-
-
-
-?>
+</form>
 
 <script
 src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
