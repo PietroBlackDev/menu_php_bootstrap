@@ -9,17 +9,68 @@
 </head>
 <body>
 <?php
+
 include 'include/inc_header.php';
 
+if(isset($_POST['codigo']) || isset($_POST['descricao'])) { //isset verifica se a variavel esta definida.
+    $msg = '';
+    if(strlen($_POST['codigo']) == 0) {  //strlen = quantidade de caracteres
+        $msg .= 'Informe o codigo<br>';
+    } elseif(strlen($_POST['descricao']) == 0) {
+        $msg .= 'Informe a descrição<br>';
+    }
+    if (is_int($_POST['codigo']) == false) {
+        $msg .= 'O codigo tem que ser numero!<br>';
+    }
+    $codigo = $_POST['codigo'];
+    $descricao = $_POST['descricao'];
 
+if ($msg != '') :
+    echo $msg;
+endif;
 
+$json = json_encode($_POST);
 
+define('DIRETORIO_CADASTRO', './grave/cadastro');
 
+if (!file_exists(DIRETORIO_CADASTRO))
+    mkdir(DIRETORIO_CADASTRO);
 
+// 1- abre o arquivo
+$recurso = fopen(DIRETORIO_CADASTRO . "/cliente-" . $codigo . ".json", 'w');
 
+// 2- escrevo no arquivo
+fwrite($recurso, $json);
 
+// 3- fecho o arquivo
+fclose($recurso);
+
+define('DIRETORIO_CLIENTES', './grave/cadastro');
+
+if (!file_exists(DIRETORIO_CLIENTES))
+    mkdir(DIRETORIO_CLIENTES);
+
+// 1- abre o arquivo
+$recurso = fopen(DIRETORIO_CLIENTES . "/clientes.json", 'a');
+
+// 2- escrevo no arquivo
+fwrite($recurso, $json);
+
+// 3- fecho o arquivo
+fclose($recurso);
+
+}
 
 ?>
+
+<form action="" method="post">
+<label for="codigo">Digite um código:</label>
+<input type="text" name="codigo" ><br><br>
+<label for="descricao">Descrição:</label>
+<input type="text" name="descricao"><br><br>
+<button type="submit">Gravar</button>
+</form>
+
 
 <script
 src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

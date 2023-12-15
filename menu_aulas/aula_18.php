@@ -11,10 +11,43 @@
 <?php
 include 'include/inc_header.php';
 
+echo '<pre>';
 
+echo '<h1> Aula de JSON </h1>';
 
+$nomes = ['joão', 'maria'];
 
+//echo json_encode($nomes);
 
+$cliente = 
+    ['nome' => 'joao', 
+    'endereco' => 'Rua XXXX',
+    'numero' => 43,
+    'linguagens' => [ 'PHP' , 'JS', 'JAVA']
+];
+
+echo json_encode($cliente) . '<br>';
+
+$json = '{
+    "cep": "01001-000",
+    "logradouro": "Praça da Sé",
+    "complemento": "lado ímpar",
+    "bairro": "Sé",
+    "localidade": "São Paulo",
+    "uf": "SP",
+    "ibge": "3550308",
+    "gia": "1004",
+    "ddd": "11",
+    "siafi": "7107"
+}';
+
+$decode = json_decode($json, true);
+
+//echo $decode['logradouro']; chamando array com true ali no decode ARRAY ASSOCIATIVO
+
+//echo $decode->logradouro; chamando objeto ACESSO VIA OBJETO
+
+var_dump($decode);
 
 
 

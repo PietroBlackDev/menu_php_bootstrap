@@ -14,7 +14,7 @@ include 'include/inc_header.php';
 ?>
 
 <div class="container text-center">
-<form action="contato.php" method="get">
+<form action="grave/contato.php" method="get">
 
     <div class="row">
     <div class="col-5 text-start">
